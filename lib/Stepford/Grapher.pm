@@ -180,6 +180,7 @@ with 'MooseX::Getopt::Dashes';
 sub run {
     my $self = shift;
     $self->_renderer->render( $self->_step_deps );
+    return 0;
 }
 
 __PACKAGE__->meta->make_immutable;
