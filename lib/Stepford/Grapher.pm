@@ -12,7 +12,7 @@ use Stepford::Error;
 our $VERSION = '1.00';
 
 use Stepford::Grapher::Types qw(
-    ArrayRef ArrayOfSteps ArrayOfClassPrefixes HashRef Step Str
+    ArrayRef ArrayOfSteps ArrayOfClassPrefixes HashRef Int Step Str
 );
 
 use List::Util qw( first );
@@ -46,6 +46,12 @@ has _renderer => (
     does     => 'Stepford::Grapher::Role::Renderer',
     init_arg => 'renderer',
     required => 1,
+);
+
+has depth => (
+    is      => 'ro',
+    isa     => Int,
+    default => 0,
 );
 
 # We want to preload all the step classes so that the final_steps passed to
@@ -135,14 +141,20 @@ sub _build_step_deps {
         );
     }
 
+    my $depth = 0;
+
     my %steps;
     my @todo_steps = ( $self->step );
     while (@todo_steps) {
+        last if $self->depth && $depth > $self->depth;
+
         my $step = shift @todo_steps;
         next if $steps{$step};
 
         $steps{$step} = $self->_deps_for($step);
         push @todo_steps, values %{ $steps{$step} };
+
+        $depth++;
     }
 
     return \%steps;
@@ -180,6 +192,7 @@ with 'MooseX::Getopt::Dashes';
 sub run {
     my $self = shift;
     $self->_renderer->render( $self->_step_deps );
+    return 0;
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -236,6 +249,13 @@ classes are do not consume the L<Stepford::Role::Step> role (this is the same
 behavior as Stepford itself.)
 
 Required.
+
+=head2 depth
+
+If this is provided, the graph will not go more than this number of levels
+back from the target step.
+
+By default, this is zero and all levels are included.
 
 =head2 renderer
 

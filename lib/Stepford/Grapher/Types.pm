@@ -6,6 +6,7 @@ use namespace::autoclean;
 
 our $VERSION = '1.00';
 
+use MooseX::Types 0.48 ();
 use parent 'MooseX::Types::Combine';
 
 # add MooseX::Getopt types for the types
