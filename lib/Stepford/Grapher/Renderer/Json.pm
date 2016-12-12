@@ -9,7 +9,7 @@ use JSON::PP qw( encode_json );
 
 use Moose;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 with(
     'Stepford::Grapher::Role::Renderer',
