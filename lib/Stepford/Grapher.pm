@@ -200,9 +200,7 @@ __PACKAGE__->meta->make_immutable;
 
 __END__
 
-=head1 NAME
-
-Stepford::Grapher - produce graphs of Stepford Dependencies
+# ABSTRACT: produce graphs of Stepford Dependencies
 
 =head1 SYNOPSIS
 

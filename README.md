@@ -2,6 +2,10 @@
 
 Stepford::Grapher - produce graphs of Stepford Dependencies
 
+# VERSION
+
+version 1.01
+
 # SYNOPSIS
 
 From the shell:
@@ -67,3 +71,22 @@ Required.
 ## run
 
 Use the renderer to render the dependencies graph.
+
+# SUPPORT
+
+Bugs may be submitted through [https://github.com/maxmind/Stepford-Grapher/issues](https://github.com/maxmind/Stepford-Grapher/issues).
+
+# AUTHOR
+
+Mark Fowler <mfowler@maxmind.com>
+
+# CONTRIBUTOR
+
+Dave Rolsky <drolsky@maxmind.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2016 - 2017 by MaxMind, Inc..
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
