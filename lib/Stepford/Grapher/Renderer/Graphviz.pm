@@ -11,7 +11,7 @@ use File::Temp qw( tempfile );
 use GraphViz2;
 use Stepford::Grapher::Types qw( HashRef Str );
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 has output => (
     is        => 'ro',

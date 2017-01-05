@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use namespace::autoclean;
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 use MooseX::Types 0.48 ();
 use parent 'MooseX::Types::Combine';

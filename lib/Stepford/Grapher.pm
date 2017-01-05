@@ -9,7 +9,7 @@ use Module::Pluggable::Object;
 use Moose;
 use Stepford::Error;
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 use Stepford::Grapher::Types qw(
     ArrayRef ArrayOfSteps ArrayOfClassPrefixes HashRef Int Step Str
